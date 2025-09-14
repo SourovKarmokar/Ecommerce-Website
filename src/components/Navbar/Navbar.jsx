@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Container from "./Container/Container";
+import Container from "../layout/Container/Container";
 import logo from "../../assets/logo.png";
-import Flex from "../Flex/Flex";
+import Flex from "../layout/Flex/Flex";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { HiMenu, HiX } from "react-icons/hi"; // hamburger menu
