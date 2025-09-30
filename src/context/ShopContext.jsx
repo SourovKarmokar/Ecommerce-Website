@@ -58,6 +58,31 @@ const ShopContextProvider = ({ children }) => {
   }
 
 
+  const updateQuantity = async (itemId,size,quantity) => {
+      let cartData = structuredClone(cartItem);
+
+      cartData[itemId][size] = quantity;
+       
+      setCartItem(cartData);
+  } 
+
+
+  const getCartAmount = async() =>{
+    let totalAmount = 0 ;
+    for(const items in cartItem){
+      let  itemInfo = products.find(( product)=> product._id === items);
+      for(const item in cartItem[items]){
+        try{
+          if(cartItem[items][item] > 0){
+            totalAmount += itemInfo.price * cartItem[items][item];
+          }
+        }catch(error){
+
+        }
+      }
+    }
+    return totalAmount;
+  }
 
 
 
@@ -72,6 +97,8 @@ const ShopContextProvider = ({ children }) => {
     cartItem,
     addToCard,
     getCartCount,
+    updateQuantity,
+    getCartAmount,
   };
 
   return (
